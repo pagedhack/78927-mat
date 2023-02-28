@@ -9,12 +9,12 @@ namespace WSDL.operaciones
         public String Saludar(string nombre)
         {
             String msj = "Hola: " +nombre;
-            saludos.add(msj);
+            saludos.Add(msj);
             return msj;
         }
         public String Mostrar(int id)
         {
-            return "x";
+            return saludos[id-1];
         }
     }
 }

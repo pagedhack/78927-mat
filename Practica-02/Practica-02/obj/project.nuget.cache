@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hFtlRmTikM6QqocijL/ALmZv5Pg0uYhJEdv5jm/La4x1Mzdv4Vgpp9vGFcPjxvkBlF7I2VVCZNfUoSAPKvpU4w==",
+  "dgSpecHash": "rySAt9dlfmnt46YiDF/AkABcLqOliCkXbCZEeSfm7krbIrqqukrj02kcAAx3E9H0ycDIE145HOc9rdJSzZdhyQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Asus\\Desktop\\Sexto\\Tecnologias Para la Integracion\\Codigo\\Practica-02\\Practica-02\\Practica-02.csproj",
+  "projectFilePath": "C:\\Users\\Asus\\Desktop\\Sexto\\Tecnologias Para la Integracion\\Codigo\\78927-mat\\Practica-02\\Practica-02\\Practica-02.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
