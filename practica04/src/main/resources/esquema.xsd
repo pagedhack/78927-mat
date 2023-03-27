@@ -18,6 +18,24 @@
         </xs:complexType>
     </xs:element>
 
+
+    <xs:element name="BBuscarIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nombre" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="BBuscarIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="respuesta" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
     <xs:element name="BBuscarRequest">
     </xs:element>
     <xs:element name="BBuscarResponse">
@@ -27,6 +45,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>   
+
 
     <xs:element name="CModificarRequest">
         <xs:complexType>
