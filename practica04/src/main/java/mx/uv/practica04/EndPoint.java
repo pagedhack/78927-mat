@@ -8,7 +8,6 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import antlr.collections.List;
 import https.t4is_uv_mx.saludos.ASaludarRequest;
 import https.t4is_uv_mx.saludos.ASaludarResponse;
 import https.t4is_uv_mx.saludos.BBuscarIdRequest;
