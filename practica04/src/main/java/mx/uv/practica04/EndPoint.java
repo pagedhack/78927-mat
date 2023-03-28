@@ -50,12 +50,12 @@ public class EndPoint {
         BBuscarIdResponse response = new BBuscarIdResponse();
         Optional<Saludador> s = isaludador.findById(peticion.getId());
         Saludador x = s.get();
-        response.setRespuesta("se ha pedido el id: " + peticion.getId() + "| Nombre: " + x.getNombre());
+        response.setRespuesta("\n" + "se ha pedido el id: " + peticion.getId() + "\n" + "| Nombre: " + x.getNombre());
         return response;
     }
 
 
-    @PayloadRoot(localPart = "BlistarRequest", namespace = "https://t4is.uv.mx/saludos")
+    @PayloadRoot(localPart = "BlistaRequest", namespace = "https://t4is.uv.mx/saludos")
 
     @ResponsePayload
     public BlistaResponse Blistar() {
@@ -63,7 +63,7 @@ public class EndPoint {
         String nombres= "";
         listanombres = isaludador.findAll();
         for (Saludador s : listanombres) {
-            nombres += s.getId() + " - " + s.getNombre() + " // ";
+            nombres += "\n" + s.getId() + " - " + s.getNombre() + " // " + "\n";
         }
         response.setRespuesta(nombres);
         return response;
@@ -77,9 +77,9 @@ public class EndPoint {
         CModificarResponse response = new CModificarResponse();
         Optional<Saludador> s = isaludador.findById(peticion.getId());
         Saludador x = s.get();
-        x.setNombre(peticion.getNombre());
+        x.setNombre(peticion.getNombrenuevo());
         isaludador.save(x);
-        response.setRespuesta("se ha modificado el nombre del saludador " + x.getNombre());
+        response.setRespuesta("\n" + "se ha modificado el nombre del id: " + x.getId() + "\n" + "Con el nombre: " + x.getNombre() + "\n");
         return response;
     }
 
@@ -89,7 +89,7 @@ public class EndPoint {
     public DEliminarResponse Eliminar(@RequestPayload DEliminarRequest peticion){
         DEliminarResponse response = new DEliminarResponse();
         isaludador.deleteById(peticion.getId());
-        response.setRespuesta("se ha eliminado el id: "+ peticion.getId());
+        response.setRespuesta("\n" + "se ha eliminado el id: "+ peticion.getId() + "\n");
         return response;
     }
 }

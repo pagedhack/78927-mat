@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://t4is.uv.mx/saludos"
- xmlns:tns="https://t4is.uv.mx/saludos" elementFormDefault="qualified">
- 
+    xmlns:tns="https://t4is.uv.mx/saludos" elementFormDefault="qualified">
+
     <xs:element name="ASaludarRequest">
         <xs:complexType>
             <xs:sequence>
@@ -17,7 +17,6 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
 
 
     <xs:element name="BBuscarIdRequest">
@@ -37,7 +36,6 @@
     </xs:element>
 
 
-
     <xs:element name="BlistaRequest">
     </xs:element>
     <xs:element name="BlistaResponse">
@@ -46,14 +44,14 @@
                 <xs:element name="respuesta" type="xs:string" />
             </xs:sequence>
         </xs:complexType>
-    </xs:element>   
+    </xs:element>
 
 
     <xs:element name="CModificarRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="id" type="xs:int" />
-                <xs:element name="nombre" type="xs:string" />
+                <xs:element name="nombrenuevo" type="xs:string" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -66,8 +64,7 @@
         </xs:complexType>
     </xs:element>
 
-    
-    
+
     <xs:element name="DEliminarRequest">
         <xs:complexType>
             <xs:sequence>
@@ -75,7 +72,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    
+
     <xs:element name="DEliminarResponse">
         <xs:complexType>
             <xs:sequence>
@@ -83,5 +80,5 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    
+
 </xs:schema>
