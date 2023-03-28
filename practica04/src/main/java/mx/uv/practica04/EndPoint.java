@@ -73,14 +73,13 @@ public class EndPoint {
     @PayloadRoot(localPart = "CModificarRequest", namespace = "https://t4is.uv.mx/saludos")
 
     @ResponsePayload
-    public CModificarResponse Editar(@RequestPayload CModificarResponse peticion){
+    public CModificarResponse Editar(@RequestPayload CModificarRequest peticion){
         CModificarResponse response = new CModificarResponse();
-        Optional<saludador> s = isaludador.findById(peticion.get)
-        // Optional<Saludador> s = isaludador.findById(peticion.gte);
-        // Saludador x = s.get();
-        // x.setNombre(peticion.getNombre());
-        // isaludador.save(x);
-        // response.setRespuesta("Se ha editado el nombre del saludador");
+        Optional<Saludador> s = isaludador.findById(peticion.getId());
+        Saludador x = s.get();
+        x.setNombre(peticion.getNombre());
+        isaludador.save(x);
+        response.setRespuesta("se ha modificado el nombre del saludador " + x.getNombre());
         return response;
     }
 
