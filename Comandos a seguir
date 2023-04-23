@@ -1,0 +1,24 @@
+
+iniciar proyecto ejemplo 1 en java
+{
+    docker pull amazoncorretto
+    https://github.com/tareasR/SaludosDividido.git
+
+    docker run -it --rm -v /root/SaludosDividido/Saludos-0.0.1-SNAPSHOT.jar:/app/x.jar -w /app -p 8080:8080 amazoncorretto java -jar x.jar
+}
+
+
+
+para crear el servicio{
+
+    curl -G https://start.spring.io/starter.zip -d dependencies=web-services -d javaVersion=8 -d groupId=mx.uv -d artifactId=consumidor -d language=java -d type=maven-project  -o demo.zip
+
+    unzip demo.zip -d consumidor
+
+    cd src/main/resources/
+
+    curl [link del wsdl] -o saludos.wsdl
+
+    cd /root/consumidor/src/main/java/mx/uv/consumidor
+
+}
