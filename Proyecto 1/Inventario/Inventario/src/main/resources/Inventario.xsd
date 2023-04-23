@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://t4is.uv.mx/inventario"
+    xmlns:tns="https://t4is.uv.mx/inventario" elementFormDefault="qualified">
+
+
+    <!-- fase de registro -->
+    <xs:element name="InventarioRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Nombre" type="xs:string" />
+                <xs:element name="Cantidad" type="xs:string" />
+                <xs:element name="Existencia" type="xs:string" />
+                <xs:element name="Valor" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="InventarioResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Respuesta" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- lista Inventario -->
+    <xs:element name="ListaInventarioRequest">
+        <xs:complexType>
+            <xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ListaInventarioResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="respuesta" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- buscar en el invetario con id -->
+    <xs:element name="InventarioIDRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="InventarioIDResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="respuesta" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- buscar por nombre -->
+    <xs:element name="BuescarNombreRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Nombre" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="BuescarNombreResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="respuesta" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- moverle al inventario -->
+    <xs:element name="CambioInventarioRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int" />
+                <xs:element name="Cambiar_Nombre" type="xs:string" />
+                <xs:element name="Modificar_cantidad" type="xs:string" />
+                <xs:element name="Cambiar_Existencia" type="xs:string" />
+                <xs:element name="Nuevo_Valor" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CambioInventarioResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="respuesta" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Quitar del inventario -->
+    <xs:element name="BorrardeInventarioRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="BorrardeInventarioResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="respuesta" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
