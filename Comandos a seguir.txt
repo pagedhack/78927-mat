@@ -21,4 +21,6 @@ para crear el servicio{
 
     cd /root/consumidor/src/main/java/mx/uv/consumidor
 
+    docker run -it --rm -v /root/consumidor:/app -w /app -v /root:/root  amazoncorretto bash
+
 }
