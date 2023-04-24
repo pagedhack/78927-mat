@@ -2,8 +2,7 @@
 iniciar proyecto ejemplo 1 en java
 {
     docker pull amazoncorretto
-    https://github.com/tareasR/SaludosDividido.git
-
+    git clone https://github.com/tareasR/SaludosDividido.git
     docker run -it --rm -v /root/SaludosDividido/Saludos-0.0.1-SNAPSHOT.jar:/app/x.jar -w /app -p 8080:8080 amazoncorretto java -jar x.jar
 }
 

@@ -2,8 +2,8 @@ package mx.uv.consumidor;
 
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 
-import mx.xlp.SaludarRequest;
-import mx.xlp.SaludarResponse;
+import mx.mlp.SaludarRequest;
+import mx.mlp.SaludarResponse;
 
 public class SaludosCliente extends WebServiceGatewaySupport {
     
