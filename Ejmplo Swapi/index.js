@@ -1,10 +1,10 @@
 //personas
 let pe = 0;
-var bNext = document.getElementById("nextPer")
+var bNext = document.getElementById("nextPer");
 bNext.addEventListener("click", function () {
     if (pe === 9) return;
     pe++;
-    const index = document.getElementById('indice');
+    const index = document.getElementById('indicePer');
     index.textContent = pe;
     var desper = document.getElementById('desper');
     var film = document.getElementById('film');
@@ -21,8 +21,6 @@ bNext.addEventListener("click", function () {
             var personas = response.data.results;
             var perh = document.getElementById('lista');
             perh.innerHTML = '';
-            var desPer = document.getElementById('desper');
-            perh.innerHTML = '';
             // let params = new URLSearchParams(location.search);
             // var contract = params.get('people');
             // console.log(params);
@@ -37,16 +35,17 @@ bNext.addEventListener("click", function () {
         });
 })
 
-var bPeople = document.getElementById("people")
+var bPeople = document.getElementById("people");
 bPeople.addEventListener("click", function () {
     axios.get("https://swapi.dev/api/people")
         .then(function (response) {
+            console.log(response);
             var personas = response.data.results;
             var perh = document.getElementById('lista');
             perh.innerHTML = '';
             personas.forEach(function (person) {
                 var personadiv = document.createElement('li');
-                personadiv.innerHTML = person.name + "<br>" + person.url;
+                personadiv.innerHTML ="Persona: " + person.name + "<br>" + person.url;
                 perh.appendChild(personadiv);
             });
         })
@@ -59,7 +58,7 @@ var bPrevious = document.getElementById("previousPer")
 bPrevious.addEventListener("click", function () {
     if (pe === 1) return;
     pe--;
-    const index = document.getElementById('indice');
+    const index = document.getElementById('indicePer');
     index.textContent = pe;
     axios.get("https://swapi.dev/api/people/?page=" + pe)
         .then(function (response) {
@@ -150,31 +149,45 @@ bDPer.addEventListener("click", function () {
 
 var bClean = document.getElementById('clean');
 bClean.addEventListener("click", function () {
+    var inde = document.getElementById('indicePer');
     var perh = document.getElementById('lista');
     var desper = document.getElementById('desper');
     var film = document.getElementById('film');
     var specie = document.getElementById('specie')
     var ship = document.getElementById('ship');
     var vehi = document.getElementById('vehi');
+    inde.innerHTML = '';
     perh.innerHTML = '';
     desper.innerHTML = '';
     film.innerHTML = '';
     specie.innerHTML = '';
     ship.innerHTML = '';
     vehi.innerHTML = '';
+    pe = 0;
 })
 
 
 //planetas
 let pla = 0;
+var b1Next = document.getElementById("nextPla");
+b1Next.addEventListener("click", function () {
+    if (pla === 9) return;
+    pla++;
+    const index1 = document.getElementById('indicePla');
+    index1.textContent = pla;
+})
+
 var bPlanets = document.getElementById("planets")
 bPlanets.addEventListener("click", function () {
     axios.get("https://swapi.dev/api/planets")
         .then(function (response) {
-            console.log(response);
             var planetas = response.data.results;
+            var pla = document.getElementById('planeta');
+            pla.innerHTML = '';
             planetas.forEach(function (p) {
-                console.log(p.name);
+                var pl = document.createElement('li');
+                pl.innerHTML = "Planeta: " + p.name + "<br>" + p.url;
+                pla.appendChild(pl);
             });
         })
         .catch(function (error) {
@@ -183,8 +196,70 @@ bPlanets.addEventListener("click", function () {
 })
 
 
-var bFilms = document.getElementById("films")
+var bDpla = document.getElementById('buscaDescripcionPla');
+bDpla.addEventListener("click", function () {
+    var id = document.getElementsByClassName('descripcionesPla')[0].value;
+    axios.get("https://swapi.dev/api/people/" + id)
+        .then(function (response) {
+            var idPlaneta = response.data;
+            var desPla = document.getElementById('desper');
+            var planetadiv = document.createElement('ul');
+            desPla.innerHTML = '';
+            var plah = document.getElementById('lista');
+            perh.innerHTML = '';
+            planetadiv.innerHTML = "<h3>Name : " + idPlaneta.name + "</h3>" +
+                "<br> gender : " + idPlaneta.gender +
+                "<br> birth year : " + idPlaneta.birth_year +
+                "<br> mass : " + idPlaneta.mass +
+                "<br> height : " + idPlaneta.height +
+                "<br> skin color : " + idPlaneta.skin_color +
+                "<br> hair color : " + idPlaneta.hair_color +
+                "<br> eye color : " + idPlaneta.eye_color;
+            desPer.appendChild(personadiv);
 
+            var fil = document.getElementById('film');
+            fil.innerHTML = '';
+            idPlaneta.films.forEach(function (r) {
+                var f = document.createElement('li');
+                f.innerHTML = "Peliculas: " + r;
+                fil.appendChild(f);
+            })
+            var spe = document.getElementById('specie');
+            spe.innerHTML = '';
+            idPlaneta.species.forEach(function (s) {
+                var s = document.createElement('li');
+                s.innerHTML = "Especies: " + s;
+                spe.appendChild(s);
+            })
+            var sta = document.getElementById('ship');
+            sta.innerHTML = '';
+            idPlaneta.starships.forEach(function (s) {
+                var sh = document.createElement('li');
+                sh.innerHTML = "Naves: " + s;
+                sta.appendChild(sh);
+            })
+            var ve = document.getElementById('vehi');
+            ve.innerHTML = '';
+            idPlaneta.vehicles.forEach(function (s) {
+                var ve = document.createElement('li');
+                ve.innerHTML = "Vehiculos: " + s;
+                sta.appendChild(ve);
+            })
+
+            document.getElementsByClassName('descripcionesPer')[0].value = "";
+        })
+        .catch(function (error) {
+            var desPer = document.getElementById('desper');
+            var errorPersona = document.createElement('h2');
+            errorPersona.innerHTML = error.code + " <br>Error de Id";
+            desPer.appendChild(errorPersona);
+            document.getElementsByClassName('descripcionesPer')[0].value = "";
+        });
+})
+
+
+
+var bFilms = document.getElementById("films")
 bFilms.addEventListener("click", function () {
     axios.get("https://swapi.dev/api/films")
         .then(function (response) {

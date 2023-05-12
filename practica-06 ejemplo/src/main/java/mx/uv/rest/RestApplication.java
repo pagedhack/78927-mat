@@ -3,8 +3,14 @@ package mx.uv.rest;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.ws.Response;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,13 +56,33 @@ public class RestApplication {
 		return lista;
 	}
 
+
+
 	@RequestMapping(value = "/get", method = RequestMethod.GET)
-	public String saludarGet() {
+	public List<String> saludarGet() {
+		List <String> p = new ArrayList<String>();
+
+		return p;
+	}
+
+	@PostMapping("/request")
+	public ResponseEntity personas(
+		@RequestBody Personas personas) {
+		
+		exampleService.fakeAuthenticate(personas);
+		return ResponseEntity.ok(HttpStatus.OK);
+	}
+
+	
+
+	// @RequestMapping(value = "/put", method = RequestMethod.PUT)
+	@PostMapping("/pu")
+	public String saludarPut() {
 		return "mensaje de tipo GET";
 	}
 
-	@RequestMapping(value = "/post", method = RequestMethod.POST)
-	public String saludarPost() {
-		return "mensaje de tipo POST";
+	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+	public String saludarDelete() {
+		return "mensaje de tipo GET";
 	}
 }
