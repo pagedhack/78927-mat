@@ -65,11 +65,6 @@ public class RestApplication {
 		return p;
 	}
 
-	@PostMapping("/request")
-	public ResponseEntity personas(
-		@RequestBody Personas personas) {
-			null;
-	}
 
 	
 
